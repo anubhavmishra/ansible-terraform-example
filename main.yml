@@ -1,5 +1,5 @@
 ---
-- name: terraform_test
+- name: main
   hosts: all
   gather_facts: false
   connection: local
