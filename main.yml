@@ -1,0 +1,24 @@
+---
+- name: terraform_test
+  hosts: all
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: plan
+    terraform:
+      project_path: 'terraform/'
+      plan_file: "{{playbook_dir}}/tfplan"
+      lock: true
+      state: planned
+
+  - name: apply
+    terraform:
+      project_path: 'terraform/'
+      lock: true
+      state: present
+
+  - name: destroy
+    terraform:
+      project_path: 'terraform/'
+      lock: true
+      state: absent
